@@ -55,7 +55,7 @@ export const ProjectSummary = ({
   );
 
   const renderDetails = visible => (
-    <div className={styles.details}>
+    <div>
       <div aria-hidden className={styles.index}>
         <Divider
           notchWidth="64px"
@@ -80,6 +80,7 @@ export const ProjectSummary = ({
         {description}
       </Text>
       <div className={styles.button} data-visible={visible}>
+        {/*Activar boton debajo de desarrollo aplicaciones web principalmente ...*/}
         <Button iconHoverShift href={buttonLink} iconEnd="arrowRight">
           {buttonText}
         </Button>

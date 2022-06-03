@@ -16,23 +16,22 @@ import { media } from 'utils/style';
 import styles from './Profile.module.css';
 
 const ProfileText = ({ visible, titleId }) => (
-  <Fragment>
-    <Heading className={styles.title} data-visible={visible} level={3} id={titleId}>
-      <DecoderText text="Hi there" start={visible} delay={500} />
-    </Heading>
-    <Text className={styles.description} data-visible={visible} size="l" as="p">
-      I’m Hamish, currently I live in Sydney working as a senior product designer at{' '}
-      <Link href="https://www.qwilr.com">Qwilr</Link>. My projects include UX design, UI
-      animations, and icon illustration. Being comfortable with code allows me to rapidly
-      prototype and validate experiences. If you’re interested in the tools and software I
-      use check out my <Link href="/uses">uses page</Link>.
-    </Text>
-    <Text className={styles.description} data-visible={visible} size="l" as="p">
-      In my spare time I like to practice Brazilian Jiu Jitsu, play video games, and{' '}
-      <Link href="/projects/volkihar-knight">make mods</Link>. I’m always down for hearing
-      about new projects, so feel free to drop me a line.
-    </Text>
-  </Fragment>
+  <>
+    <Fragment>
+      <Heading className={styles.title} data-visible={visible} level={3} id={titleId}>
+        <DecoderText text="Un poco sobre mí" start={visible} delay={500} />
+      </Heading>
+      <Text className={styles.description} data-visible={visible} size="l" as="p">
+        Soy Mauricio, actualmente vivo en Argentina, Río Negro. Trabajo de manera
+        freelance. Mis proyectos realizados incluyen diseño y desarrollo de webapps
+        modernas con un diseño único y excepcional.
+      </Text>
+      <Text className={styles.description} data-visible={visible} size="l" as="p">
+        En mi tiempo libre entreno en el gym y juego algún shooter con amigos. Siempre
+        estoy dispuesto a escuchar nuevos proyectos, asi que no dudes en escribirme.
+      </Text>
+    </Fragment>
+  </>
 );
 
 export const Profile = ({ id, visible, sectionRef }) => {
@@ -59,24 +58,14 @@ export const Profile = ({ id, visible, sectionRef }) => {
                 secondary
                 className={styles.button}
                 data-visible={visible}
-                href="/contact"
+                href="https://wa.me/5492994081375"
                 icon="send"
               >
-                Send me a message
+                Enviame un mensaje
               </Button>
             </div>
             <div className={styles.column}>
-              <div className={styles.tag} aria-hidden>
-                <Divider
-                  notchWidth="64px"
-                  notchHeight="8px"
-                  collapsed={!visible}
-                  collapseDelay={1000}
-                />
-                <div className={styles.tagText} data-visible={visible}>
-                  About Me
-                </div>
-              </div>
+              <div className={styles.tag} aria-hidden></div>
               <div className={styles.image}>
                 <Image
                   reveal
@@ -84,7 +73,7 @@ export const Profile = ({ id, visible, sectionRef }) => {
                   placeholder={profileImgPlaceholder}
                   srcSet={[profileImg, profileImgLarge]}
                   sizes={`(max-width: ${media.mobile}px) 100vw, 480px`}
-                  alt="Me standing in front of the Torii on Miyajima, an island off the coast of Hiroshima in Japan"
+                  alt="Yo en Loi Suites"
                 />
                 <svg
                   aria-hidden="true"

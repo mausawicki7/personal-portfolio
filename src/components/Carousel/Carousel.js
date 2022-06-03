@@ -250,7 +250,7 @@ export const Carousel = ({ width, height, images, placeholder, ...rest }) => {
       };
 
       const placeholderElement = placeholderRef.current;
-      placeholderElement.addEventListener('transitionend', purgePlaceholder);
+      //placeholderElement.addEventListener('transitionend', purgePlaceholder);
 
       return () => {
         if (placeholderElement) {
@@ -368,6 +368,7 @@ export const Carousel = ({ width, height, images, placeholder, ...rest }) => {
           >
             <canvas aria-hidden className={styles.canvas} ref={canvas} />
           </div>
+
           {showPlaceholder && placeholder && (
             <img
               aria-hidden
@@ -388,6 +389,7 @@ export const Carousel = ({ width, height, images, placeholder, ...rest }) => {
         >
           <ArrowLeft />
         </button>
+
         <button
           className={styles.button}
           data-next={true}

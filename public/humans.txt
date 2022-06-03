@@ -10,7 +10,7 @@ _______________________________________________________________________________
 
 DESIGNER | デザイナー
 
-Hamish Williams
+Mauricio Sawicki
 Hand crafted design & web development
 
 Design tools:
@@ -18,8 +18,7 @@ Figma
 Photoshop
 Blender
 
-twitter.com/hamishmw
-github.com/hamishmw
+github.com/mausawicki7
 
 _______________________________________________________________________________
 

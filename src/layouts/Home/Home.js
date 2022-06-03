@@ -17,8 +17,13 @@ import { Profile } from 'layouts/Home/Profile';
 import { ProjectSummary } from 'layouts/Home/ProjectSummary';
 import { useEffect, useRef, useState } from 'react';
 import styles from './Home.module.css';
+import { Section } from 'components/Section';
+import { Text } from 'components/Text';
+import { Divider } from '../../components/Divider/Divider';
+import { Button } from 'components/Button';
+import { LastProjects } from './LastProjects';
 
-const disciplines = ['Developer', 'Prototyper', 'Animator', 'Illustrator', 'Modder'];
+const disciplines = ['React', 'CSS', 'HTML', 'Javascript', 'Wordpress'];
 
 export const Home = () => {
   const [visibleSections, setVisibleSections] = useState([]);
@@ -26,11 +31,13 @@ export const Home = () => {
   const intro = useRef();
   const projectOne = useRef();
   const projectTwo = useRef();
-  const projectThree = useRef();
-  const details = useRef();
+  const proyectos = useRef();
+  const detalles = useRef();
+  const placeholderImg =
+    'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAICAgICAQICAgIDAgIDAwYEAwMDAwcFBQQGCAcJCAgHCAgJCg0LCQoMCggICw8LDA0ODg8OCQsQERAOEQ0ODg7/2wBDAQIDAwMDAwcEBAcOCQgJDg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg7/wgARCAASACADAREAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAABAUHBgn/xAAZAQEAAwEBAAAAAAAAAAAAAAAFAwQGAgj/2gAMAwEAAhADEAAAAOanpHEuRHdAjSk8GcqnLA1RdO5nscBYolLViNGLY7CLKMf/xAAjEAABBAEDBAMAAAAAAAAAAAABAAIDBAUSFFETJTIzNILB/9oACAEBAAE/AIYbMngCVRZJXnDpAsndbNhXNPCezuTtPKw23ZS1PaFfmjfaIjCyU5Zj3KkepkTq5VX4CPvKynoKxwG6+w/V/8QAGxEAAwADAQEAAAAAAAAAAAAAAAECAwQRMhL/2gAIAQIBAT8AzpRBirtDxfSJxSmbGwrniNaX0u5xwVtLpJgNryyvR//EABwRAAMAAwEBAQAAAAAAAAAAAAABAgMEESEyE//aAAgBAwEBPwDXzu74U0kXsJTwzW6fhp6lRXWZ/nwvFdMxaN0Sl+Y/sSRrpcP/2Q==';
 
   useEffect(() => {
-    const sections = [intro, projectOne, projectTwo, projectThree, details];
+    const sections = [intro, projectOne, projectTwo, proyectos, detalles];
 
     const sectionObserver = new IntersectionObserver(
       (entries, observer) => {
@@ -69,8 +76,7 @@ export const Home = () => {
     <div className={styles.home}>
       <Meta
         title="Designer + Developer"
-        description="Design portfolio of Hamish Williams — a product designer working on web & mobile
-          apps with a focus on motion, experience design, and accessibility."
+        description="Design portfolio of Mauricio Sawicki — a Front-End Developer"
       />
       <Intro
         id="intro"
@@ -79,17 +85,19 @@ export const Home = () => {
         scrollIndicatorHidden={scrollIndicatorHidden}
       />
       <ProjectSummary
-        id="project-1"
+        id="desarrolloweb"
         sectionRef={projectOne}
+        buttonText={'Ver más'}
+        buttonLink={'#appdevelopment'}
         visible={visibleSections.includes(projectOne.current)}
         index={1}
-        title="Designing the future of education"
-        description="Designing a platform to help educators build better online courseware"
-        buttonText="View project"
-        buttonLink="/projects/smart-sparrow"
+        title="Apasionado por el diseño y desarrollo web."
+        description="MausaDev es el reflejo de mi ilusión por crecer como profesional 
+        dentro de la industria del desarrollo web. Como freelance, 
+        me especializo en el desarrollo Front-End."
         model={{
           type: 'laptop',
-          alt: 'Smart Sparrow lesson builder',
+          alt: 'Mauricio Sawicki FrontEnd Developer',
           textures: [
             {
               srcSet: [sprTexture, sprTextureLarge],
@@ -99,18 +107,20 @@ export const Home = () => {
         }}
       />
       <ProjectSummary
-        id="project-2"
+        id="appdevelopment"
         alternate
         sectionRef={projectTwo}
+        buttonText={'Ver proyectos'}
+        buttonLink={'#proyectos'}
         visible={visibleSections.includes(projectTwo.current)}
         index={2}
-        title="Video game progress tracking"
-        description="Design and development for a video game tracking app built in React Native"
-        buttonText="View website"
-        buttonLink="https://gamestack.hamishw.com"
+        title="Desarrollo aplicaciones web modernas y adaptables."
+        description="He creado más de 10 webapps como freelance. 
+        Siempre intento estar al día para así poder aplicar los mejores recursos a mis desarrollos.
+        Ofrezco soluciones innovadoras que aportan valor a las empresas y negocios."
         model={{
           type: 'phone',
-          alt: 'App login screen',
+          alt: 'Apps made by Mauricio Sawicki',
           textures: [
             {
               srcSet: [gamestackTexture, gamestackTextureLarge],
@@ -123,30 +133,27 @@ export const Home = () => {
           ],
         }}
       />
-      <ProjectSummary
-        id="project-3"
-        sectionRef={projectThree}
-        visible={visibleSections.includes(projectThree.current)}
-        index={3}
-        title="Biomedical image collaboration"
-        description="Increasing the amount of collaboration in Slice, an app for biomedical imaging"
-        buttonText="View project"
-        buttonLink="/projects/slice"
-        model={{
-          type: 'laptop',
-          alt: 'Annotating a biomedical image in the Slice app',
-          textures: [
-            {
-              srcSet: [sliceTexture, sliceTextureLarge],
-              placeholder: sliceTexturePlaceholder,
-            },
-          ],
-        }}
+      {/* <Button iconHoverShift href="#detalles" iconEnd="arrowRight">
+        asd
+      </Button> */}
+
+      <LastProjects
+        sectionRef={proyectos}
+        visible={visibleSections.includes(proyectos.current)}
+        id="proyectos"
       />
+
+      <Section id="detalles" sectionRef={detalles}>
+        {/* <Text>{'asdasdasdas'}</Text> */}
+        {/* <Button secondary iconHoverShift icon="chevronRight" as="div">
+          Read article
+        </Button> */}
+      </Section>
+
       <Profile
-        sectionRef={details}
-        visible={visibleSections.includes(details.current)}
-        id="details"
+        sectionRef={detalles}
+        visible={visibleSections.includes(detalles.current)}
+        id="detalles"
       />
       <Footer />
     </div>

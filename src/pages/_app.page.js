@@ -1,6 +1,5 @@
 import 'layouts/App/reset.css';
 import 'layouts/App/global.css';
-
 import { Navbar } from 'components/Navbar';
 import { ThemeProvider } from 'components/ThemeProvider';
 import { tokens } from 'components/ThemeProvider/theme';
@@ -19,9 +18,7 @@ import { ScrollRestore } from '../layouts/App/ScrollRestore';
 export const AppContext = createContext({});
 
 const repoPrompt = `
-__  __  __
-\u005C \u005C \u005C \u005C \u005C\u2215\n \u005C \u005C\u2215\u005C \u005C\n  \u005C\u2215  \u005C\u2215
-\n\nTaking a peek huh? Check out the source code: https://github.com/HamishMW/portfolio
+¿Estás buscando algo? Te recomiendo que chequees mi GitHub! https://github.com/mausawicki7
 `;
 
 const App = ({ Component, pageProps }) => {
